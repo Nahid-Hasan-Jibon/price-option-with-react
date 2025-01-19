@@ -16,14 +16,15 @@ const NavBar = () => {
 
   return (
 
-    <nav>
+    <nav className="bg-yellow-400 text-black p-6 ">
         <div className="text-3xl md:hidden" onClick={()=>setOpen(!open)}>
             {
-                open===true?<IoIosClose />:<RiMenu2Fill/>
+                open?<IoIosClose />:<RiMenu2Fill/>
             }
         
         </div>
-        <ul className="md:flex ">
+        <ul className={`md:flex absolute md:static bg-yellow-400 px-6 duration-1000
+            ${open?'top-16':'-top-60'}`}>
         {
             routes.map(route=><Link key={route.id }route={route}></Link> )
         }
